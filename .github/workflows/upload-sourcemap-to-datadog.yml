@@ -36,7 +36,7 @@ jobs:
         run: |
           datadog-ci sourcemaps upload ./apps/web/.next/static \
           --service=shiiinji-blog \
-          --release-version=test8.8 \
+          --release-version=test9.11 \
           --minified-path-prefix=/_next/static \
         env:
           DATADOG_SITE: us5.datadoghq.com

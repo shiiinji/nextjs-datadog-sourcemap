@@ -16,6 +16,7 @@ importers:
 
   apps/docs:
     specifiers:
+      '@datadog/browser-rum': 4.35.0
       '@types/node': ^17.0.12
       '@types/react': ^18.0.22
       '@types/react-dom': ^18.0.7
@@ -27,6 +28,7 @@ importers:
       typescript: ^4.5.3
       ui: workspace:*
     dependencies:
+      '@datadog/browser-rum': 4.35.0
       next: 13.2.4_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -155,6 +157,18 @@ packages:
     resolution: {integrity: sha512-xFRpSio9M4IPcjM/jRa4xxXfR+KAArXPyhHg13+ulobGRYAcUYcsVhTtrtG7RZTOLx/HFw7rmlDrJCH9bmXtdQ==}
     dependencies:
       '@datadog/browser-core': 4.35.0
+    dev: false
+
+  /@datadog/browser-rum/4.35.0:
+    resolution: {integrity: sha512-9Ajp/JTjnC3J8xtcKwwUyiA6289Ybj3nSQnBT/yxCw2D3wf3hH/yEbszfgqSsCZIXIg3YCh8MQLD5Cw10ndY/g==}
+    peerDependencies:
+      '@datadog/browser-logs': 4.35.0
+    peerDependenciesMeta:
+      '@datadog/browser-logs':
+        optional: true
+    dependencies:
+      '@datadog/browser-core': 4.35.0
+      '@datadog/browser-rum-core': 4.35.0
     dev: false
 
   /@datadog/browser-rum/4.35.0_6oj6ybws2hqhxtysg5btkt7rhi:

@@ -1,6 +1,11 @@
 name: upload-sourcemap-to-datadog
 on:
   push:
+    branches:
+      - main
+    paths:
+      - apps/docs/**
+      - apps/web/**
   workflow_dispatch:
 
 jobs:
@@ -29,14 +34,24 @@ jobs:
 
       - name: Run pnpm build
         run: pnpm build
-        env:
-          BUILD_MODE: ci
 
-      - name: upload sourcemap
+      - name: upload sourcemap for web
         run: |
           datadog-ci sourcemaps upload ./apps/web/.next/static \
           --service=shiiinji-blog \
           --release-version=test9.12 \
+          --minified-path-prefix=/_next/static \
+        env:
+          DATADOG_SITE: us5.datadoghq.com
+          DATADOG_API_HOST: api.us5.datadoghq.com
+          DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
+          GITHUB_SHA: ${{ github.sha }}
+
+      - name: upload sourcemap for doc
+        run: |
+          datadog-ci sourcemaps upload ./apps/docs/.next/static \
+          --service=shiiinji-doc \
+          --release-version=$GITHUB_SHA \
           --minified-path-prefix=/_next/static \
         env:
           DATADOG_SITE: us5.datadoghq.com

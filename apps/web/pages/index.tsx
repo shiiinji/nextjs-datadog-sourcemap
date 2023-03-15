@@ -10,7 +10,7 @@ export default function Web() {
     clientToken: 'pub3cdac897e1065b834cd3870ea7b52d88',
     site: 'us5.datadoghq.com',
     service:'shiiinji-blog',
-    version: 'test8.8',
+    version: 'test9.12',
     env:'prod',
     sessionSampleRate: 100,
     trackUserInteractions: true,
@@ -20,7 +20,7 @@ export default function Web() {
     clientToken: 'pub3cdac897e1065b834cd3870ea7b52d88',
     site: 'us5.datadoghq.com',
     service:'shiiinji-blog',
-    version: 'test8.8',
+    version: 'test9.12',
     env:'qa',
     sessionSampleRate: 100,
     forwardErrorsToLogs: true,
@@ -40,4 +40,14 @@ export default function Web() {
       <Button />
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  const f = () => 'test'
+
+  return {
+    props: {
+      r: f()
+    }
+  }
 }

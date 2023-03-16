@@ -37,7 +37,7 @@ jobs:
 
       - name: Get git short hash
         id: get_git_short_hash
-        run: echo ::set-output name=GIT_HASH::$(git rev-parse --short HEAD)
+        run: echo "GIT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
       - name: upload sourcemap for web
         run: |
